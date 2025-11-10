@@ -3,6 +3,7 @@ package sprintone;
 import java.util.ArrayList;
 import java.util.List;
 
+// base class for places to stay (hotels, flats, villas)
 public abstract class Accommodation {
     protected int id;
     protected String name;
@@ -10,6 +11,7 @@ public abstract class Accommodation {
     protected double pricePerNight;
     protected List<Facility> facilities;
 
+    // constructor: set id, name, location and price, and start empty facilities
     public Accommodation(int id, String name, String location, double pricePerNight) {
         this.id = id;
         this.name = name;
@@ -18,6 +20,7 @@ public abstract class Accommodation {
         this.facilities = new ArrayList<>();
     }
 
+    // add a facility to this accommodation
     public void addFacility(Facility f) {
         facilities.add(f);
     }

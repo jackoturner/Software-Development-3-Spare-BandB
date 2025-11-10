@@ -1,11 +1,13 @@
 package sprintone;
 
+// booking links a user, a place to stay and dates
 public class Booking {
     private User user;
     private Accommodation accommodation;
     private String startDate;
     private String endDate;
 
+    // constructor: set user, place and dates
     public Booking(User user, Accommodation accommodation, String startDate, String endDate) {
         this.user = user;
         this.accommodation = accommodation;
@@ -13,6 +15,7 @@ public class Booking {
         this.endDate = endDate;
     }
 
+    // prints booking summary
     public void printDetails() {
         System.out.println("Booking Details:");
         user.printDetails();

@@ -1,16 +1,14 @@
 package sprintone;
-import java.util.*;
-import sprintone.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Create some facilities
+        // make some facilities (things guests use)
         Facility kitchen = new Facility("Kitchen", "Fully stocked with modern appliances");
         Facility washer = new Facility("Washing Machine", "Washing with included dryer function");
         Facility wifi = new Facility("Wi-Fi", "High-speed fibre optic internet access");
         Facility pool = new Facility("Pool", "Heated outdoor pool with sun loungers");
 
-        // Create accommodations
+        // make places to stay and add facilities
         Flat flat = new Flat(1, "City Centre Flat", "London", 100.0, 8);
         flat.addFacility(kitchen);
         flat.addFacility(wifi);
@@ -26,7 +24,7 @@ public class Main {
         // Create a user
         User jack = new User("Jack Turner", "jack@outlook.com");
 
-        // Create bookings
+        // create bookings and print them
         Booking b1 = new Booking(jack, flat, "2025-11-01", "2025-11-05");
         Booking b2 = new Booking(jack, hotel, "2025-12-10", "2025-12-15");
         Booking b3 = new Booking(jack, villa, "2026-01-02", "2026-01-09");
