@@ -4,24 +4,31 @@ package sprintone;
 public class Booking {
     private User user;
     private Accommodation accommodation;
-    private String startDate;
-    private String endDate;
+    private boolean isActive;
 
-    // constructor: set user, place and dates
-    public Booking(User user, Accommodation accommodation, String startDate, String endDate) {
+    public Booking(User user, Accommodation accommodation) {
         this.user = user;
         this.accommodation = accommodation;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.isActive = false;
     }
 
-    // prints booking summary
+    public User getUser() { return user; }
+    public Accommodation getAccommodation() { return accommodation; }
+    public boolean isActive() { return isActive; }
+
+    public void confirmBooking() {
+        isActive = true;
+    }
+
+    public void cancelBooking() {
+        isActive = false;
+    }
+
     public void printDetails() {
         System.out.println("Booking Details:");
         user.printDetails();
         accommodation.printDetails();
-        System.out.println("From: " + startDate + " To: " + endDate);
+        System.out.println("Status: " + (isActive ? "CONFIRMED" : "CANCELLED/INACTIVE"));
         System.out.println("----------------------------------------\n");
-
     }
 }

@@ -10,6 +10,7 @@ public abstract class Accommodation {
     protected String location;
     protected double pricePerNight;
     protected List<Facility> facilities;
+    protected boolean available; // true = can be booked
 
     // constructor: set id, name, location and price, and start empty facilities
     public Accommodation(int id, String name, String location, double pricePerNight) {
@@ -18,16 +19,35 @@ public abstract class Accommodation {
         this.location = location;
         this.pricePerNight = pricePerNight;
         this.facilities = new ArrayList<>();
+        this.available = true;
     }
 
-    // add a facility to this accommodation
+    // Properties
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public boolean isAvailable() { return available; }
+
+    // Methods
     public void addFacility(Facility f) {
         facilities.add(f);
+    }
+
+    public boolean book() {
+        if (!available) return false;
+        available = false;
+        return true;
+    }
+
+    public boolean release() {
+        if (available) return false;
+        available = true;
+        return true;
     }
 
     public double getTotalCost(int nights) {
         return pricePerNight * nights;
     }
 
+    // Each concrete type prints their own details
     public abstract void printDetails();
 }
