@@ -1,0 +1,10 @@
+•	As a system operator, I want to add different accommodation types (Hotels, Flats, Luxury Villas), so that they are available for users to book.
+•	As a user, I want to view information about each accommodation, so that I can decide which one I want to book.
+•	As a user, I want to book an accommodation, so that no other user can book it while I’m using it.
+•	As a user, I want to be notified when an accommodation is already booked, so that I know I need to choose another option.
+•	As a user, I want to release (cancel) my booking, so that the accommodation becomes available for others to book.
+•	As a system operator, I want the system to store booking status, so that I can view which items are booked and which are free.
+•	As a user, I want to see which facilities (WiFi, Gym, Pool, etc.) are included with each accommodation, so that I can choose based on my preferences.
+•	As a returning user, I want to earn rewards when I make bookings, so that I feel valued and encouraged to keep using the system.
+•	As a system operator, I want the program to generate a set of sample users, so that I can test the booking functionality without manual input.
+•	As a system operator, I want the application to generate at least three example accommodations, so that the booking system can be demonstrated immediately.
