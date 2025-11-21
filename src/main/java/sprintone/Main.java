@@ -68,10 +68,10 @@ public class Main {
         cara.printDetails();
 
         // Demonstrate releasing a booking so another user can book
-        System.out.println("\n--- Releasing the flat so Bob can try again ---");
+        System.out.println("\n--- Releasing the flat so Luke can try again ---");
         bm.releaseBooking(flat);
 
-        System.out.println("\n--- Bob attempts to book the flat again ---");
+        System.out.println("\n--- Luke attempts to book the flat again ---");
         bm.makeBooking(luke, flat);
 
         // Final state
