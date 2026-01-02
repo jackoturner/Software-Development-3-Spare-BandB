@@ -25,7 +25,13 @@ public abstract class Accommodation {
     // Properties
     public int getId() { return id; }
     public String getName() { return name; }
+    public String getLocation() { return location; } 
+    public double getPricePerNight() { return pricePerNight; }
     public boolean isAvailable() { return available; }
+
+    public List<Facility> getFacilities() {
+        return facilities;  // Returns the actual list
+    }
 
     // Methods
     public void addFacility(Facility f) {

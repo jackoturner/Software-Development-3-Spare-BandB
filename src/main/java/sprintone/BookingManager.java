@@ -2,6 +2,7 @@ package sprintone;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /* Singleton manager that creates and tracks bookings. Ensures an item that is already booked cannot be booked by another user. Works with RewardManager class to award loyalty points. */
 public class BookingManager {
@@ -19,6 +20,12 @@ public class BookingManager {
     }
 
     public List<Booking> getBookings() { return bookings; }
+
+    public List<Booking> getBookingsForUser(User user) {
+        return bookings.stream()
+                .filter(b -> b.getUser().equals(user) && b.isActive())
+                .collect(Collectors.toList());
+    }
 
     // Make a booking if the accommodation is available
     public Booking makeBooking(User user, Accommodation acc) {
@@ -53,20 +60,18 @@ public class BookingManager {
                 break;
             }
         }
+
         if (found == null) {
             System.out.println("No active booking found for accommodation ID " + acc.getId());
             return false;
         }
 
         found.cancelBooking();
-        boolean released = acc.release();
-        if (released) {
-            System.out.println("BookingManager: released booking for " + acc.getName());
-            return true;
-        } else {
-            System.out.println("BookingManager: could not release accommodation " + acc.getName());
-            return false;
-        }
+        bookings.remove(found); // <-- IMPORTANT: remove booking completely
+        acc.release();
+
+        System.out.println("BookingManager: released booking for " + acc.getName());
+        return true;
     }
 
     public void printAllBookings() {
